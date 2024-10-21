@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherWeaver</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>WeatherWeaver</h1>
+        <p>Get the latest weather updates in real-time</p>
+    </header>
+    <div class="i-main">
+    <div class="button">
+        <input type="text" id="city-search" placeholder="Enter city name"/>
+    </div>
+    <div class="search">
+        <button id="search-btn">Search</button>
+    </div>
+    </div>
+    
+    
+    <section id="weather-display">
+        <h2 id="city-name">City, Country</h2>
+        <div class="weather-icon">
+            <img id="icon" src="weather-icon.png" alt="weather icon">
+        </div>
+        <div class="weather-info">
+            <h3 id="temperature">25°C</h3>
+            <p id="description">Sunny</p>
+            <p><span id="humidity">65%</span></p>
+            <p> <span id="wind-speed">12 km/h</span></p>
+        </div>
+    </section>
+
+    <section id="forecast">
+        <h3>5-Day Forecast</h3>
+        <div class="forecast-cards" id="forecast-cards">
+            <!-- Forecast cards will be dynamically generated -->
+        </div>
+    </section>
+
+    <footer>
+        <p>©Powered by WeatherWeaver</p>
+    </footer>
+</body>
+</html>
