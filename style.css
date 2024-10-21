@@ -103,7 +103,6 @@ button#search-btn:hover {
     color: #007BFF;
 }
 
-/* Forecast Section */
 #forecast {
     text-align: center;
     padding: 30px;
@@ -157,10 +156,6 @@ footer {
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Default styles (for large screens like desktop) are already defined */
-
-/* Mobile Devices (max-width: 600px) */
 @media only screen and (max-width: 600px) {
     header {
         text-align: center;
@@ -171,8 +166,8 @@ footer {
     input#city-search {
         width: 80%;
         margin: 10px auto;
-        left: 10%; /* Center the input field */
-        margin-left: 0; /* Override large screen settings */
+        left: 10%; 
+        margin-left: 0;
     }
 
     button#search-btn {
@@ -194,7 +189,7 @@ footer {
     }
 
     .forecast-cards {
-        display: block; /* Stack forecast cards vertically */
+        display: block; 
         padding: 0;
     }
 
@@ -204,7 +199,6 @@ footer {
     }
 }
 
-/* Tablet Devices (max-width: 900px) */
 @media only screen and (max-width: 900px) {
     header {
         text-align: center;
@@ -234,7 +228,6 @@ footer {
     }
 }
 
-/* Large Screens (over 1200px) */
 @media only screen and (min-width: 1200px) {
     header h1 {
         font-size: 3rem;
@@ -260,25 +253,25 @@ footer {
 }
 
 .country-figure {
-    width: 150px; /* Set a fixed width */
-    height: 150px; /* Set a fixed height */
+    width: 150px;
+    height: 150px; 
     clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
-    object-fit: cover; /* Cover the hexagon without stretching */
-    transition: transform 0.3s ease; /* Smooth transition on hover */
+    object-fit: cover; 
+    transition: transform 0.3s ease; 
 }
 
 .country-figure:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    transform: scale(1.05); 
 }
 
 .country {
-    text-align: center; /* Center-align text under images */
-    margin: 20px; /* Add margin around each country */
+    text-align: center;
+    margin: 20px;
 }
 
 #countries-weather {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-around; /* Even spacing between hexagons */
-    flex-wrap: wrap; /* Wrap to the next line if space runs out */
-    gap: 20px; /* Space between hexagon containers */
+    display: flex; 
+    justify-content: space-around;
+    flex-wrap: wrap; 
+    gap: 20px; 
 }

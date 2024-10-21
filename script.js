@@ -1,8 +1,6 @@
-// Your WeatherAPI Key
 const API_KEY = 'b540e60ef1574039a2361312242110';
 const BASE_URL = 'https://api.weatherapi.com/v1/';
 
-// Get DOM elements
 const citySearch = document.getElementById('city-search');
 const searchBtn = document.getElementById('search-btn');
 const cityNameEl = document.getElementById('city-name');
@@ -13,7 +11,6 @@ const windSpeedEl = document.getElementById('wind-speed');
 const iconEl = document.getElementById('icon');
 const forecastCardsEl = document.getElementById('forecast-cards');
 
-// Fetch weather data based on city name
 searchBtn.addEventListener('click', () => {
     const city = citySearch.value;
     if (city) {
@@ -21,12 +18,10 @@ searchBtn.addEventListener('click', () => {
     }
 });
 
-// Function to get current weather and forecast data
 function getWeatherData(city) {
     const currentWeatherUrl = `${BASE_URL}current.json?key=${API_KEY}&q=${city}`;
     const forecastUrl = `${BASE_URL}forecast.json?key=${API_KEY}&q=${city}&days=5`;
 
-    // Fetch current weather
     fetch(currentWeatherUrl)
         .then(response => {
             if (!response.ok) {
@@ -42,7 +37,6 @@ function getWeatherData(city) {
             alert('Error fetching current weather. Please check your API key or city name.');
         });
 
-    // Fetch 5-day forecast
     fetch(forecastUrl)
         .then(response => {
             if (!response.ok) {
@@ -59,7 +53,6 @@ function getWeatherData(city) {
         });
 }
 
-// Update the current weather display
 function updateCurrentWeather(data) {
     cityNameEl.textContent = `${data.location.name}, ${data.location.country}`;
     tempEl.textContent = `${data.current.temp_c}°C`;
@@ -69,16 +62,14 @@ function updateCurrentWeather(data) {
     iconEl.src = `https:${data.current.condition.icon}`;
 }
 
-// Update the 5-day forecast
 function updateForecast(data) {
-    forecastCardsEl.innerHTML = ''; // Clear previous forecast
+    forecastCardsEl.innerHTML = ''; 
 
     if (data.forecast && data.forecast.forecastday.length > 0) {
         data.forecast.forecastday.forEach(day => {
             const date = new Date(day.date);
             const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
 
-            // Create forecast card
             const card = document.createElement('div');
             card.classList.add('card');
 
@@ -91,12 +82,10 @@ function updateForecast(data) {
             const tempEl = document.createElement('p');
             tempEl.textContent = `${Math.round(day.day.avgtemp_c)}°C`;
 
-            // Append to card
             card.appendChild(dayEl);
             card.appendChild(iconEl);
             card.appendChild(tempEl);
 
-            // Append card to forecast section
             forecastCardsEl.appendChild(card);
         });
     } else {
@@ -112,7 +101,6 @@ const countries = [
     { name: "France", elementTemp: "temp-france", elementHumidity: "humidity-france", elementWind: "wind-france" }
 ];
 
-// Function to fetch and update weather for all countries
 function updateCountriesWeather() {
     countries.forEach(country => {
         const weatherUrl = `${BASE_URL}current.json?key=${API_KEY}&q=${country.name}`;
@@ -135,8 +123,6 @@ function updateCountriesWeather() {
     });
 }
 
-// Update weather every 5 minutes (300,000 milliseconds)
 setInterval(updateCountriesWeather, 300000);
 
-// Initial call to fetch weather immediately on page load
 updateCountriesWeather();
