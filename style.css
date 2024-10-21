@@ -35,41 +35,47 @@ header p {
 }
 
 .i-main{
+    
     margin-top: 15px;
-    margin-left: 0;
-    text-align: left; 
+    display: flex;
+    margin-left: 37.5%;
+    
     
 }
 input#city-search {
-    padding: 10px;
+
+    padding: 10px 15px;
+    border: none;
+    color: #A6FCFF;
     border-radius: 20px;
-    border: 1px solid #ccc;
-    align-content: flex-end;
-    position: absolute;
-    margin-left: 83%;
-    margin-right: 0; 
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    border: 2px solid #A6FCFF;
+    background-color: rgba(51, 141, 137, 0.5);
+    width: 250px;
     z-index: 1;
+    font-size: 1.2rem;
 }
 
 button#search-btn {
     padding: 10px 15px;
     border: none;
-    background-color: transparent;
-    color: white;
+    color: #A6FCFF;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
     display: flex;
-    margin-left: auto;
-    margin-right: 0;
-    z-index: 0;
+    border: 2px solid #A6FCFF;
+    background-color: rgba(51, 141, 137, 0.5);
+    font-size: 1.2rem;
 }
+
 
 button#search-btn:hover {
     background-color: #338D89;
 }
 
-/* Weather Display Section */
 #weather-display {
     text-align: center;
     padding: 30px;
@@ -251,4 +257,28 @@ footer {
     .card {
         width: 180px;
     }
+}
+
+.country-figure {
+    width: 150px; /* Set a fixed width */
+    height: 150px; /* Set a fixed height */
+    clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+    object-fit: cover; /* Cover the hexagon without stretching */
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.country-figure:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.country {
+    text-align: center; /* Center-align text under images */
+    margin: 20px; /* Add margin around each country */
+}
+
+#countries-weather {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-around; /* Even spacing between hexagons */
+    flex-wrap: wrap; /* Wrap to the next line if space runs out */
+    gap: 20px; /* Space between hexagon containers */
 }
